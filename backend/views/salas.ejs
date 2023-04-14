@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    
+    <div class="col-xs-12">
+      <form action="/inssalas" method="post" role="form">
+          <div class="row">
+              <div class="col-xs-4">
+                  <input type="text" name="imagem" placeholder="linksala" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                  <input type="text" name="numero" placeholder="numero" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                  <input type="text" name="capacidade" placeholder="capacidade" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="descricao" placeholder="descricao" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="valor" placeholder="valor" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="tipo" placeholder="tipo" class="form-control" required/>
+              </div>
+              <div class="col-xs-4">
+                  <button type="submit" class="btn btn-default">Incluir</button>
+              </div>
+          </div>
+      </form>
+    </div>
+    
+    <table class="table table-bordered table-striped">
+        <thead><tr>
+            <th>LINKSALA</th>
+            <th>NUMERO</th>
+            <th>CAPACIDADE</th>
+            <th>DESCRICAO</th>
+            <th>VALOR</th>
+            <th>TIPO</th>
+        </tr>
+        </thead>
+      
+      <tbody>
+          <% salas.forEach(function(sala, index) { %>
+            <tr>
+              <td><a href="/edtsalas/<%= sala._id %>">
+                <%- sala.imagem %>
+              </a></td>
+              <td><%- sala.numero %></td>
+              <td><%- sala.capacidade %></td>
+              <td><%- sala.descricao %></td>
+              <td><%- sala.valor %></td>
+              <td><%- sala.tipo %></td>
+              <td><a href="/delsalas/delete/<%= sala._id %>" 
+                onclick="return confirm('Tem certeza que deseja excluir?');">
+                X
+              </a></td>                 
+            </tr>
+          <% }) %>
+      </tbody>
+      
+      
+    </table>
+    <a href="index">VOLTAR</a>
+  </body>
+</html>

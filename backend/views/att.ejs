@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/insedtfuncionarios/<%= doc._id %>"  method="POST">
+      <p>cpf:<input type="text" name="cpf" value="<%= doc.cpf %>" /></p>
+      <p>nome:<input type="text" name="nome" value="<%= doc.nome %>" /></p>
+      <p>cep<input type="text" name="cep" value=" <%= doc.cep %>"/></p>
+      <p>email:<input type="text" name="email" value="<%= doc.email %>" /></p>
+      <p>telefone:<input type="text" name="fone" value="<%= doc.fone %>" /></p>
+      <p>funcao:<input type="text" name="funcao" value="<%= doc.funcao %>" /></p>
+      <input type="submit" value="Salvar" />
+    </form>
+  </body>
+</html>
